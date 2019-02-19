@@ -7,21 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C5325CB169029C48E29904C /* Pods_VirtualTourist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02423FC540AFB81DCE4DCDC /* Pods_VirtualTourist.framework */; };
+		9B088ABF221AC5330093C697 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B088ABE221AC5330093C697 /* CoreDataStack.swift */; };
+		9B088AC1221AC5C00093C697 /* FlickerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B088AC0221AC5C00093C697 /* FlickerAPI.swift */; };
+		9B088AC4221AC9260093C697 /* FetchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B088AC3221AC9260093C697 /* FetchResultsController.swift */; };
+		9B088AC6221AC9CD0093C697 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B088AC5221AC9CD0093C697 /* Default-568h@2x.png */; };
 		9BCC270721FCF8A600C70728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC270621FCF8A600C70728 /* AppDelegate.swift */; };
-		9BCC270921FCF8A600C70728 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC270821FCF8A600C70728 /* ViewController.swift */; };
 		9BCC270C21FCF8A600C70728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC270A21FCF8A600C70728 /* Main.storyboard */; };
 		9BCC270E21FCF8A700C70728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC270D21FCF8A700C70728 /* Assets.xcassets */; };
 		9BCC271121FCF8A700C70728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC270F21FCF8A700C70728 /* LaunchScreen.storyboard */; };
+		9BCC271921FCF8F900C70728 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC271821FCF8F900C70728 /* Core.swift */; };
+		9BCC271C21FCF91800C70728 /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC271A21FCF91800C70728 /* VirtualTourist.xcdatamodeld */; };
+		9BCC271E21FCF93000C70728 /* PhotoCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC271D21FCF93000C70728 /* PhotoCellVC.swift */; };
+		9BCC272621FCF97A00C70728 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC272521FCF97A00C70728 /* MapVC.swift */; };
+		9BCC272821FCF99500C70728 /* PhotosAlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC272721FCF99500C70728 /* PhotosAlbumVC.swift */; };
+		9BCC272E21FCF9CC00C70728 /* Photo_CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC272D21FCF9CC00C70728 /* Photo_CoreData.swift */; };
+		9BCC273221FCF9E800C70728 /* Pin_CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC273121FCF9E800C70728 /* Pin_CoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2573124DF005702E54E2DDEE /* Pods-VirtualTourist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualTourist.release.xcconfig"; path = "Pods/Target Support Files/Pods-VirtualTourist/Pods-VirtualTourist.release.xcconfig"; sourceTree = "<group>"; };
+		9B088ABE221AC5330093C697 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		9B088AC0221AC5C00093C697 /* FlickerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerAPI.swift; sourceTree = "<group>"; };
+		9B088AC3221AC9260093C697 /* FetchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchResultsController.swift; sourceTree = "<group>"; };
+		9B088AC5221AC9CD0093C697 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9BCC270321FCF8A600C70728 /* VirtualTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCC270621FCF8A600C70728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9BCC270821FCF8A600C70728 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9BCC270B21FCF8A600C70728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BCC270D21FCF8A700C70728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BCC271021FCF8A700C70728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BCC271221FCF8A700C70728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BCC271821FCF8F900C70728 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		9BCC271B21FCF91800C70728 /* VirtualTourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualTourist.xcdatamodel; sourceTree = "<group>"; };
+		9BCC271D21FCF93000C70728 /* PhotoCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellVC.swift; sourceTree = "<group>"; };
+		9BCC272521FCF97A00C70728 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		9BCC272721FCF99500C70728 /* PhotosAlbumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAlbumVC.swift; sourceTree = "<group>"; };
+		9BCC272D21FCF9CC00C70728 /* Photo_CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo_CoreData.swift; sourceTree = "<group>"; };
+		9BCC273121FCF9E800C70728 /* Pin_CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin_CoreData.swift; sourceTree = "<group>"; };
+		B02423FC540AFB81DCE4DCDC /* Pods_VirtualTourist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VirtualTourist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F877D0ED07B8F9326EBB940C /* Pods-VirtualTourist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualTourist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VirtualTourist/Pods-VirtualTourist.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +53,62 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5325CB169029C48E29904C /* Pods_VirtualTourist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8686B0717C388F8BE12FAB94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B02423FC540AFB81DCE4DCDC /* Pods_VirtualTourist.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B088AB92219B8950093C697 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BCC273121FCF9E800C70728 /* Pin_CoreData.swift */,
+				9BCC272D21FCF9CC00C70728 /* Photo_CoreData.swift */,
+				9B088ABE221AC5330093C697 /* CoreDataStack.swift */,
+				9B088AC0221AC5C00093C697 /* FlickerAPI.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B088ABA2219B8D30093C697 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9BCC271821FCF8F900C70728 /* Core.swift */,
+				9BCC272521FCF97A00C70728 /* MapVC.swift */,
+				9BCC272721FCF99500C70728 /* PhotosAlbumVC.swift */,
+				9BCC271D21FCF93000C70728 /* PhotoCellVC.swift */,
+				9B088AC3221AC9260093C697 /* FetchResultsController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9B088ABB2219B9020093C697 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9BCC270A21FCF8A600C70728 /* Main.storyboard */,
+				9BCC270F21FCF8A700C70728 /* LaunchScreen.storyboard */,
+				9BCC270D21FCF8A700C70728 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		9BCC26FA21FCF8A600C70728 = {
 			isa = PBXGroup;
 			children = (
+				9B088AC5221AC9CD0093C697 /* Default-568h@2x.png */,
 				9BCC270521FCF8A600C70728 /* VirtualTourist */,
 				9BCC270421FCF8A600C70728 /* Products */,
+				B4239D329BF871E1829F1952 /* Pods */,
+				8686B0717C388F8BE12FAB94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +124,22 @@
 			isa = PBXGroup;
 			children = (
 				9BCC270621FCF8A600C70728 /* AppDelegate.swift */,
-				9BCC270821FCF8A600C70728 /* ViewController.swift */,
-				9BCC270A21FCF8A600C70728 /* Main.storyboard */,
-				9BCC270D21FCF8A700C70728 /* Assets.xcassets */,
-				9BCC270F21FCF8A700C70728 /* LaunchScreen.storyboard */,
 				9BCC271221FCF8A700C70728 /* Info.plist */,
+				9BCC271A21FCF91800C70728 /* VirtualTourist.xcdatamodeld */,
+				9B088ABA2219B8D30093C697 /* Controllers */,
+				9B088AB92219B8950093C697 /* Model */,
+				9B088ABB2219B9020093C697 /* Assets */,
 			);
 			path = VirtualTourist;
+			sourceTree = "<group>";
+		};
+		B4239D329BF871E1829F1952 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F877D0ED07B8F9326EBB940C /* Pods-VirtualTourist.debug.xcconfig */,
+				2573124DF005702E54E2DDEE /* Pods-VirtualTourist.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BCC271521FCF8A700C70728 /* Build configuration list for PBXNativeTarget "VirtualTourist" */;
 			buildPhases = (
+				FBC83CD3D8E7FD6B35CC56E4 /* [CP] Check Pods Manifest.lock */,
 				9BCC26FF21FCF8A600C70728 /* Sources */,
 				9BCC270021FCF8A600C70728 /* Frameworks */,
 				9BCC270121FCF8A600C70728 /* Resources */,
+				67846F1BB28DD2B1D5DE0F89 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BCC271121FCF8A700C70728 /* LaunchScreen.storyboard in Resources */,
+				9B088AC6221AC9CD0093C697 /* Default-568h@2x.png in Resources */,
 				9BCC270E21FCF8A700C70728 /* Assets.xcassets in Resources */,
 				9BCC270C21FCF8A600C70728 /* Main.storyboard in Resources */,
 			);
@@ -130,12 +211,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		67846F1BB28DD2B1D5DE0F89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VirtualTourist/Pods-VirtualTourist-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VirtualTourist/Pods-VirtualTourist-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBC83CD3D8E7FD6B35CC56E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VirtualTourist-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9BCC26FF21FCF8A600C70728 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BCC270921FCF8A600C70728 /* ViewController.swift in Sources */,
+				9BCC273221FCF9E800C70728 /* Pin_CoreData.swift in Sources */,
+				9BCC271C21FCF91800C70728 /* VirtualTourist.xcdatamodeld in Sources */,
+				9B088ABF221AC5330093C697 /* CoreDataStack.swift in Sources */,
+				9B088AC4221AC9260093C697 /* FetchResultsController.swift in Sources */,
+				9B088AC1221AC5C00093C697 /* FlickerAPI.swift in Sources */,
+				9BCC271E21FCF93000C70728 /* PhotoCellVC.swift in Sources */,
+				9BCC271921FCF8F900C70728 /* Core.swift in Sources */,
+				9BCC272E21FCF9CC00C70728 /* Photo_CoreData.swift in Sources */,
+				9BCC272821FCF99500C70728 /* PhotosAlbumVC.swift in Sources */,
+				9BCC272621FCF97A00C70728 /* MapVC.swift in Sources */,
 				9BCC270721FCF8A600C70728 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +417,7 @@
 		};
 		9BCC271621FCF8A700C70728 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F877D0ED07B8F9326EBB940C /* Pods-VirtualTourist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +435,7 @@
 		};
 		9BCC271721FCF8A700C70728 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2573124DF005702E54E2DDEE /* Pods-VirtualTourist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -334,6 +473,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9BCC271A21FCF91800C70728 /* VirtualTourist.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9BCC271B21FCF91800C70728 /* VirtualTourist.xcdatamodel */,
+			);
+			currentVersion = 9BCC271B21FCF91800C70728 /* VirtualTourist.xcdatamodel */;
+			path = VirtualTourist.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9BCC26FB21FCF8A600C70728 /* Project object */;
 }
