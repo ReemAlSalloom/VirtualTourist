@@ -18,9 +18,9 @@ class MapVC: UIViewController,  UIGestureRecognizerDelegate, MKMapViewDelegate
     @IBOutlet weak var mapView: MKMapView!
     lazy var store = delegate.store
     
-   var fetchedResultController: NSFetchedResultsController<NSFetchRequestResult>?
+   var fetchedResultController: NSFetchedResultsController<Pin>?
     
-    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
+    let fetchRequest = NSFetchRequest<Pin>(entityName: "Pin")
     
     override func viewDidLoad()
     {
@@ -61,7 +61,7 @@ class MapVC: UIViewController,  UIGestureRecognizerDelegate, MKMapViewDelegate
         let latPredicate = NSPredicate(format: "latitude = %@", argumentArray: [(view.annotation?.coordinate.latitude)!])
         let longPredicate = NSPredicate(format: "longitude = %@", argumentArray: [(view.annotation?.coordinate.longitude)!])
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
+        let fetchRequest = NSFetchRequest<Pin>(entityName: "Pin")
         
         let combinedPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [latPredicate, longPredicate])
         
@@ -71,15 +71,15 @@ class MapVC: UIViewController,  UIGestureRecognizerDelegate, MKMapViewDelegate
         
         fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: store.context, sectionNameKeyPath: nil, cacheName: nil)
         
-        fetchCompletion(fetchResultController: fetchedResultController, completion: {
+      //  fetchCompletion(fetchResultController: fetchedResultController, completion: {
             
                 let objc = fetchedResultController?.fetchedObjects as! [NSManagedObject]
             
                 point = objc[0]
-        })
+      //  })
         mapview.deselectAnnotation(view.annotation, animated: false)
         
-        performSegue(withIdentifier: "push", sender: point)
+        performSegue(withIdentifier: "photoAlbumVC", sender: point)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -100,9 +100,9 @@ extension MapVC
       
         fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: store.context  , sectionNameKeyPath: nil, cacheName: nil)
         
-        fetchCompletion(fetchResultController: fetchedResultController , completion: {
+      //  fetchCompletion(fetchResultController: fetchedResultController , completion: {
         
-            let pins:[PinItem] = fetchedResultController?.fetchedObjects as! [PinItem]
+        let pins:[Pin] = (fetchedResultController?.fetchedObjects)!
             
             DispatchQueue.global(qos: .userInitiated).async
                 {
@@ -122,7 +122,7 @@ extension MapVC
                             self.mapView.addAnnotations(annotationList)
                     }
             }
-        })
+       // })
         
     }
     
