@@ -38,7 +38,7 @@
                     <navigationItem key="navigationItem" title="Virtual Tourist" id="QG2-bm-Dbq"/>
                     <connections>
                         <outlet property="mapView" destination="zMZ-pD-hQg" id="Dbf-Ri-mLD"/>
-                        <segue destination="6mK-pf-5R5" kind="show" identifier="photoAlbumVC" id="5v7-xq-aVq"/>
+                        <segue destination="6mK-pf-5R5" kind="show" identifier="show" id="5v7-xq-aVq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVD-LX-pXf" sceneMemberID="firstResponder"/>
@@ -73,20 +73,17 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ImageCell" reuseIdentifier="ImageCell" id="zZC-m6-hPF">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ImageCell" reuseIdentifier="ImageCell" id="zZC-m6-hPF" customClass="PhotoCellVC" customModule="VirtualTourist" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="126"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="126"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RB7-ZY-C0Q">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RB7-ZY-C0Q" customClass="photocel">
                                                     <rect key="frame" x="0.0" y="0.0" width="125" height="126"/>
                                                     <color key="backgroundColor" red="0.47489689089999998" green="0.47489689089999998" blue="0.47489689089999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
-                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KDF-Be-7Rq">
-                                                    <rect key="frame" x="52.5" y="53" width="20" height="20"/>
-                                                </activityIndicatorView>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -94,13 +91,14 @@
                                             <constraint firstAttribute="trailing" secondItem="RB7-ZY-C0Q" secondAttribute="trailing" id="S7n-LX-bcP"/>
                                             <constraint firstItem="RB7-ZY-C0Q" firstAttribute="top" secondItem="zZC-m6-hPF" secondAttribute="top" id="lHk-na-RRi"/>
                                             <constraint firstItem="RB7-ZY-C0Q" firstAttribute="leading" secondItem="zZC-m6-hPF" secondAttribute="leading" id="mWx-YD-wZc"/>
-                                            <constraint firstItem="KDF-Be-7Rq" firstAttribute="centerY" secondItem="zZC-m6-hPF" secondAttribute="centerY" id="oaV-QN-FuJ"/>
-                                            <constraint firstItem="KDF-Be-7Rq" firstAttribute="centerX" secondItem="zZC-m6-hPF" secondAttribute="centerX" id="pHE-yV-YUL"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="RB7-ZY-C0Q" id="QBM-pQ-jwG"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="6mK-pf-5R5" id="EBj-2a-dnt"/>
+                                    <outlet property="dataSource" destination="6mK-pf-5R5" id="Wmj-in-m8U"/>
                                     <outlet property="delegate" destination="6mK-pf-5R5" id="11O-GP-BIT"/>
                                 </connections>
                             </collectionView>
@@ -109,7 +107,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ls4-4o-WXU"/>
-                                    <barButtonItem title="New Collection" id="mBJ-kd-O0B"/>
+                                    <barButtonItem title="New Collection" id="mBJ-kd-O0B">
+                                        <connections>
+                                            <action selector="newCollection:" destination="6mK-pf-5R5" id="j7u-PX-GrU"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="LBg-z1-Ayf"/>
                                 </items>
                             </toolbar>
@@ -129,9 +131,8 @@
                         <viewLayoutGuide key="safeArea" id="MPD-Ui-S4O"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="3BI-bL-AUX" id="9PN-nM-b9r"/>
+                        <outlet property="collectionView" destination="3BI-bL-AUX" id="XzY-Vi-xQE"/>
                         <outlet property="detailMapView" destination="bUk-fw-GHx" id="oBg-9p-2eg"/>
-                        <outlet property="newCollectionBtn" destination="mBJ-kd-O0B" id="qPx-xd-Ht1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVT-5U-VhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
