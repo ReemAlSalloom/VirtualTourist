@@ -12,6 +12,11 @@
 		9B088AC1221AC5C00093C697 /* FlickerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B088AC0221AC5C00093C697 /* FlickerAPI.swift */; };
 		9B088AC4221AC9260093C697 /* FetchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B088AC3221AC9260093C697 /* FetchResultsController.swift */; };
 		9B088AC6221AC9CD0093C697 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B088AC5221AC9CD0093C697 /* Default-568h@2x.png */; };
+		9B198D792227274300C53C7E /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B198D782227274300C53C7E /* Codable.swift */; };
+		9B198D7B2227279300C53C7E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B198D7A2227279300C53C7E /* Constants.swift */; };
+		9B198D7D22272A3A00C53C7E /* StoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B198D7C22272A3A00C53C7E /* StoreController.swift */; };
+		9B198D8022272ACD00C53C7E /* tempMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B198D7F22272ACD00C53C7E /* tempMapVC.swift */; };
+		9B198D8222272B5100C53C7E /* tempAlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B198D8122272B5100C53C7E /* tempAlbumVC.swift */; };
 		9BCC270721FCF8A600C70728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCC270621FCF8A600C70728 /* AppDelegate.swift */; };
 		9BCC270C21FCF8A600C70728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC270A21FCF8A600C70728 /* Main.storyboard */; };
 		9BCC270E21FCF8A700C70728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BCC270D21FCF8A700C70728 /* Assets.xcassets */; };
@@ -31,6 +36,12 @@
 		9B088AC0221AC5C00093C697 /* FlickerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerAPI.swift; sourceTree = "<group>"; };
 		9B088AC3221AC9260093C697 /* FetchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchResultsController.swift; sourceTree = "<group>"; };
 		9B088AC5221AC9CD0093C697 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9B198D782227274300C53C7E /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		9B198D7A2227279300C53C7E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B198D7C22272A3A00C53C7E /* StoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreController.swift; sourceTree = "<group>"; };
+		9B198D7F22272ACD00C53C7E /* tempMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempMapVC.swift; sourceTree = "<group>"; };
+		9B198D8122272B5100C53C7E /* tempAlbumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tempAlbumVC.swift; sourceTree = "<group>"; };
+		9B198DA1222735A600C53C7E /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCC270321FCF8A600C70728 /* VirtualTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCC270621FCF8A600C70728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BCC270B21FCF8A600C70728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +74,7 @@
 		8686B0717C388F8BE12FAB94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B198DA1222735A600C53C7E /* Kingfisher.framework */,
 				B02423FC540AFB81DCE4DCDC /* Pods_VirtualTourist.framework */,
 			);
 			name = Frameworks;
@@ -73,8 +85,8 @@
 			children = (
 				9BCC273121FCF9E800C70728 /* Pin_CoreData.swift */,
 				9BCC272D21FCF9CC00C70728 /* Photo_CoreData.swift */,
-				9B088ABE221AC5330093C697 /* CoreDataStack.swift */,
-				9B088AC0221AC5C00093C697 /* FlickerAPI.swift */,
+				9B198D782227274300C53C7E /* Codable.swift */,
+				9B198D7A2227279300C53C7E /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -82,23 +94,35 @@
 		9B088ABA2219B8D30093C697 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9BCC271821FCF8F900C70728 /* Core.swift */,
+				9B198D7E22272AA200C53C7E /* delete */,
 				9BCC272521FCF97A00C70728 /* MapVC.swift */,
 				9BCC272721FCF99500C70728 /* PhotosAlbumVC.swift */,
 				9BCC271D21FCF93000C70728 /* PhotoCellVC.swift */,
-				9B088AC3221AC9260093C697 /* FetchResultsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		9B088ABB2219B9020093C697 /* Assets */ = {
+		9B088ABB2219B9020093C697 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				9BCC270A21FCF8A600C70728 /* Main.storyboard */,
 				9BCC270F21FCF8A700C70728 /* LaunchScreen.storyboard */,
 				9BCC270D21FCF8A700C70728 /* Assets.xcassets */,
 			);
-			path = Assets;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9B198D7E22272AA200C53C7E /* delete */ = {
+			isa = PBXGroup;
+			children = (
+				9B088AC3221AC9260093C697 /* FetchResultsController.swift */,
+				9BCC271821FCF8F900C70728 /* Core.swift */,
+				9B088ABE221AC5330093C697 /* CoreDataStack.swift */,
+				9B088AC0221AC5C00093C697 /* FlickerAPI.swift */,
+				9B198D7F22272ACD00C53C7E /* tempMapVC.swift */,
+				9B198D8122272B5100C53C7E /* tempAlbumVC.swift */,
+			);
+			path = delete;
 			sourceTree = "<group>";
 		};
 		9BCC26FA21FCF8A600C70728 = {
@@ -124,11 +148,12 @@
 			isa = PBXGroup;
 			children = (
 				9BCC270621FCF8A600C70728 /* AppDelegate.swift */,
-				9BCC271221FCF8A700C70728 /* Info.plist */,
+				9B198D7C22272A3A00C53C7E /* StoreController.swift */,
 				9BCC271A21FCF91800C70728 /* VirtualTourist.xcdatamodeld */,
-				9B088ABA2219B8D30093C697 /* Controllers */,
+				9BCC271221FCF8A700C70728 /* Info.plist */,
 				9B088AB92219B8950093C697 /* Model */,
-				9B088ABB2219B9020093C697 /* Assets */,
+				9B088ABA2219B8D30093C697 /* Controllers */,
+				9B088ABB2219B9020093C697 /* Views */,
 			);
 			path = VirtualTourist;
 			sourceTree = "<group>";
@@ -221,12 +246,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-VirtualTourist/Pods-VirtualTourist-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,15 +292,20 @@
 			files = (
 				9BCC273221FCF9E800C70728 /* Pin_CoreData.swift in Sources */,
 				9BCC271C21FCF91800C70728 /* VirtualTourist.xcdatamodeld in Sources */,
+				9B198D792227274300C53C7E /* Codable.swift in Sources */,
 				9B088ABF221AC5330093C697 /* CoreDataStack.swift in Sources */,
 				9B088AC4221AC9260093C697 /* FetchResultsController.swift in Sources */,
 				9B088AC1221AC5C00093C697 /* FlickerAPI.swift in Sources */,
 				9BCC271E21FCF93000C70728 /* PhotoCellVC.swift in Sources */,
+				9B198D7B2227279300C53C7E /* Constants.swift in Sources */,
 				9BCC271921FCF8F900C70728 /* Core.swift in Sources */,
 				9BCC272E21FCF9CC00C70728 /* Photo_CoreData.swift in Sources */,
 				9BCC272821FCF99500C70728 /* PhotosAlbumVC.swift in Sources */,
 				9BCC272621FCF97A00C70728 /* MapVC.swift in Sources */,
+				9B198D8222272B5100C53C7E /* tempAlbumVC.swift in Sources */,
+				9B198D8022272ACD00C53C7E /* tempMapVC.swift in Sources */,
 				9BCC270721FCF8A600C70728 /* AppDelegate.swift in Sources */,
+				9B198D7D22272A3A00C53C7E /* StoreController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

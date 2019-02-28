@@ -8,143 +8,80 @@ import CoreData
 import MapKit
 
 
-let delegate = UIApplication.shared.delegate as! AppDelegate
 
-class MapVC: UIViewController,  UIGestureRecognizerDelegate, MKMapViewDelegate
+class MapVC: UIViewController
 {
-   
-
+    
+    
     
     @IBOutlet weak var mapView: MKMapView!
-    lazy var store = delegate.store
+    // lazy var store = delegate.store
+    var pins = [Pin]()
+    var store:StoreController!
+    var selectedPin : Pin!
     
-   var fetchedResultController: NSFetchedResultsController<Pin>?
-    
-    let fetchRequest = NSFetchRequest<Pin>(entityName: "Pin")
-    
-    override func viewDidLoad()
-    {
-        
+    override func viewDidLoad() {
         super.viewDidLoad()
-        
         mapView.delegate = self
-        let gest = UILongPressGestureRecognizer(target: self, action: #selector(addpin(_: )))
-        gest.delegate = self
-        gest.minimumPressDuration = 0.5
-        gest.allowableMovement = 1
-        mapView.addGestureRecognizer(gest)
-
-        
-        
-        self.loadData()
-        
+        let longGesture = UILongPressGestureRecognizer(target: self, action:#selector(longPress(_:)))
+        mapView.addGestureRecognizer(longGesture)
+        loadPins()
     }
     
-    @objc func addpin(_ gest: UILongPressGestureRecognizer)
-    {
-        if gest.state == UIGestureRecognizer.State.began
-        {
-            let loc = gest.location(in: mapView)
-            let coord = mapView.convert(loc, toCoordinateFrom: mapView)
+    func loadPins() {
+        pins = PinItem.getPins(context: store.context)
+        for pin in pins {
             let annotation = MKPointAnnotation()
-            annotation.coordinate = coord
-            let pin = PinItem(lat: coord.latitude,long: coord.longitude, context: (fetchedResultController?.managedObjectContext)!)
-            try! store.saveContext()
-            loadData()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longitude)
+            mapView.addAnnotation(annotation)
         }
     }
     
-    public func mapView(_ mapview: MKMapView, didSelect view: MKAnnotationView)
-    {
-        var point: NSManagedObject!
-        
-        let latPredicate = NSPredicate(format: "latitude = %@", argumentArray: [(view.annotation?.coordinate.latitude)!])
-        let longPredicate = NSPredicate(format: "longitude = %@", argumentArray: [(view.annotation?.coordinate.longitude)!])
-        
-        let fetchRequest = NSFetchRequest<Pin>(entityName: "Pin")
-        
-        let combinedPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [latPredicate, longPredicate])
-        
-        fetchRequest.predicate = combinedPredicate
-        
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latitude", ascending: true)]
-        
-        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: store.context, sectionNameKeyPath: nil, cacheName: nil)
-        
-      //  fetchCompletion(fetchResultController: fetchedResultController, completion: {
-            
-                let objc = fetchedResultController?.fetchedObjects as! [NSManagedObject]
-            
-                point = objc[0]
-      //  })
-        mapview.deselectAnnotation(view.annotation, animated: false)
-        
-        performSegue(withIdentifier: "photoAlbumVC", sender: point)
+    @objc func longPress(_ sender: UIGestureRecognizer){
+        if sender.state == .ended {
+            let coordinate = mapView.convert(sender.location(in: mapView),toCoordinateFrom: mapView)
+            selectedPin = PinItem.add(latitude: coordinate.latitude, longitude: coordinate.longitude, context: store.context)
+            loadPins()
+        }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        let target = segue.destination as! PhotosAlbumVC
-        target.point = sender as? PinItem
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "show", let vc = segue.destination as? PhotosAlbumVC {
+            vc.pin = selectedPin
+            vc.store = store
+        }
     }
+    
+    
     
 }
 
-extension MapVC
+extension MapVC: MKMapViewDelegate
 {
-
-    
-    func loadData()
-    {
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "latitude", ascending: false), NSSortDescriptor(key: "longitude", ascending: false)]
-      
-        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: store.context  , sectionNameKeyPath: nil, cacheName: nil)
-        
-      //  fetchCompletion(fetchResultController: fetchedResultController , completion: {
-        
-        let pins:[Pin] = (fetchedResultController?.fetchedObjects)!
-            
-            DispatchQueue.global(qos: .userInitiated).async
-                {
-                    var annotationList = [MKPointAnnotation]()
-                    
-                    for pin in pins
-                    {
-                        let annotation = MKPointAnnotation()
-                        
-                        annotation.coordinate = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longitude)
-                        
-                        annotationList.append(annotation)
-                    }
-                    
-                    DispatchQueue.main.async
-                        {
-                            self.mapView.addAnnotations(annotationList)
-                    }
-            }
-       // })
-        
-    }
-    
-    func fetchCompletion(fetchResultController: NSFetchedResultsController<NSFetchRequestResult>?, completion: ()->())
-    {
-        fetchResultController?.delegate = self as? NSFetchedResultsControllerDelegate
-       
-        if let fetchResult = fetchedResultController
-        {
-            do
-            {
-                try fetchResult.performFetch()
-            }
-            catch let error as NSError
-            {
-                print("Search Error : \n\(error)\n\(String(describing: fetchedResultController))")
-            }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "pin") as? MKPinAnnotationView
+        if let annotationView = annotationView {
+            annotationView.annotation = annotation
+        }
+        else {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            annotationView!.canShowCallout = true
+            let btn = UIButton(type: .detailDisclosure)
+            annotationView!.rightCalloutAccessoryView = btn
         }
         
-        completion()
+        return annotationView
     }
     
-
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let pin = PinItem.getPinByCoordination(pins: pins, coordinate: view.annotation?.coordinate)
+        if let pin = pin {
+            selectedPin = pin
+            self.performSegue(withIdentifier: "show", sender: self)
+        }
+        mapView.deselectAnnotation(view.annotation, animated: true)
+        
+    }
+    
     
 }

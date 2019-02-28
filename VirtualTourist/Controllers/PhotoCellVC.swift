@@ -8,15 +8,16 @@
 
 import Foundation
 import UIKit
-import CoreData
+import Kingfisher
 
 class PhotoCellVC: UICollectionViewCell {
     
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+   // @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
     
-    
+    var photo: Photo!
     
     
 }

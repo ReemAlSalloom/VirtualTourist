@@ -8,50 +8,46 @@
 
 import Foundation
 import CoreData
+import MapKit
 
-public class PinItem: NSManagedObject
+public class PinItem
 {
-
-     public class func fetchRequest()-> NSFetchRequest<PinItem>
-    {
-        return NSFetchRequest<PinItem>(entityName: "Pin")
-    }
-    @NSManaged public var latitude: Double
-
-    @NSManaged public var longitude: Double
-    
-    @NSManaged public var image: NSSet?
-    
-    @NSManaged public var id: Int32
-
-    convenience init(lat: Double, long: Double, context: NSManagedObjectContext)
-    {
-        if let entity = NSEntityDescription.entity(forEntityName: "Pin", in: context)
+    static func add(latitude: Double ,longitude: Double,context:NSManagedObjectContext) -> Pin {
+        let pin = Pin(context: context)
+        pin.latitude = latitude
+        pin.longitude = longitude
+        do
         {
-            self.init(entity: entity, insertInto: context)
-            self.longitude = long
-            self.latitude = lat
-            self.id = 1
+            try context.save()
         }
-        else
+        catch
         {
-            fatalError("ERROR: Unable to find Pin Entity")
+            print(error)
+        }
+        return pin
+    }
+    
+    static func getPins(context:NSManagedObjectContext) -> [Pin]{
+        var pins: [Pin] = []
+        let fetchRequest = NSFetchRequest<Pin>(entityName: "Pin")
+        do {
+            pins = try context.fetch(fetchRequest)
+        } catch {
+            fatalError("error fetching : \(error.localizedDescription)")
         }
         
+        return pins
     }
-//}
-//
-//extension PinItem
-//{
-    @objc(addImageObject:)
-    @NSManaged public func addToImage(_ value: Photos)
     
-    @objc(removeImageObject:)
-    @NSManaged public func removeFromImage(_ value: Photos)
-    
-    @objc(addImage:)
-    @NSManaged public func addToImage(_ values: NSSet)
-    
-    @objc(removeImage:)
-    @NSManaged public func removeFromImage(_ values: NSSet)
+    static func getPinByCoordination(pins:[Pin],coordinate:CLLocationCoordinate2D?)->Pin?{
+        guard let coordinate = coordinate else {
+            return nil
+        }
+        for pin in pins {
+            if pin.latitude == coordinate.latitude && pin.longitude == coordinate.longitude {
+                return pin
+            }
+        }
+        return nil
+    }
 }
